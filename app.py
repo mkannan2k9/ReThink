@@ -6,8 +6,8 @@ import re
 
 app = Flask(__name__)
 
-#genai.configure(api_key='AIzaSyA635wowrHfFJgkS4MWQbEIXrHIkerxnCA')
-client = genai.Client(api_key= "AIzaSyA635wowrHfFJgkS4MWQbEIXrHIkerxnCA")
+#genai.configure(api_key='API_KEY')
+client = genai.Client(api_key= "API_KEY")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
