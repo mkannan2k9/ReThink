@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Incident Analysis Results</title>
+
+  <!-- Google Fonts: Montserrat (headings), Roboto (body), Source Serif Pro (long content) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@600;700&family=Source+Serif+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+
+  <style>
+	  :root {
+		--brand: #4CAF50;
+		--text: #222;
+		--bg: #f5f5f5;
+		--card: #fff;
+		--border: #e9ecef;
+	  }
+
+	  body {
+		font-family: 'Roboto', Arial, sans-serif;
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 24px;
+		background: var(--bg);
+		color: var(--text);
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	  }
+
+	  .container {
+		background: var(--card);
+		padding: 28px;
+		border-radius: 12px;
+		box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+	  }
+
+	  h1, h2, .ai-content h3, .ai-content h4, .ai-content h5, .ai-content h6 {
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 700;
+		margin: 0 0 14px;
+	  }
+
+	  h1 {
+		text-align: center;
+		border-bottom: 3px solid var(--brand);
+		padding-bottom: 10px;
+		margin-bottom: 24px;
+		font-size: 1.9rem;
+		color: #1c1c1c;
+	  }
+
+	  h2 {
+		color: var(--brand);
+		border-left: 4px solid var(--brand);
+		padding-left: 12px;
+		margin-top: 24px;
+		font-size: 1.2rem;
+	  }
+
+	  .error-message {
+		background: #f8d7da;
+		color: #721c24;
+		padding: 16px;
+		border: 1px solid #f5c6cb;
+		border-radius: 8px;
+		margin: 18px 0;
+		font-weight: 500;
+	  }
+
+	  .input-summary, .ai-response {
+		background: var(--card);
+		border-radius: 10px;
+		padding: 18px;
+		margin-bottom: 22px;
+		border: 1px solid var(--border);
+	  }
+
+	  .input-value, .ai-content {
+		font-family: 'Source Serif Pro', Georgia, serif;
+		font-size: 16px;
+		color: #333;
+		white-space: pre-line;
+	  }
+
+	  .ai-response {
+		border: 2px solid var(--brand);
+		margin-top: 18px;
+		padding: 20px;
+	  }
+
+	  /* AI content markdown elements */
+	  .ai-content p { margin: 0.45em 0; }
+	  .ai-content ul, .ai-content ol { margin: 0.4em 0 0.4em 1.2em; }
+	  .ai-content li { margin: 0.2em 0; }
+	  .ai-content code {
+		font-family: monospace;
+		background: #f3f5f7;
+		padding: 0.15em 0.35em;
+		border-radius: 4px;
+	  }
+	  .ai-content pre code {
+		display: block;
+		padding: 8px;
+		border-radius: 8px;
+		background: #0b1020;
+		color: #e6edf3;
+		overflow-x: auto;
+	  }
+	  .ai-content table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 0.6em 0;
+		font-size: 0.98em;
+	  }
+	  .ai-content th, .ai-content td {
+		border: 1px solid #e2e6ea;
+		padding: 8px 10px;
+		text-align: left;
+	  }
+	  .ai-content th { background: #f6f8fa; }
+	  .ai-content blockquote {
+		border-left: 4px solid var(--brand);
+		background: #f6fff7;
+		padding: 8px 12px;
+		margin: 0.6em 0;
+		color: #1f3a24;
+		border-radius: 8px;
+	  }
+
+	  .back-btn {
+		display: inline-block;
+		margin-top: 20px;
+		padding: 10px 18px;
+		background: #6c757d;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 8px;
+		font-weight: 600;
+		font-size: 14px;
+	  }
+	  .back-btn:hover { background: #5a6268; }
+
+	  @media (max-width: 640px) {
+		body { padding: 16px; }
+		.container { padding: 20px; }
+		h1 { font-size: 1.6rem; }
+		h2 { font-size: 1.05rem; }
+		.ai-content, .input-value { font-size: 15.5px; }
+	  }
+	</style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Incident Analysis Results</h1>
+
+    {% if error %}
+      <div class="error-message">
+        <strong>Error:</strong> {{ error }}
+      </div>
+    {% else %}
+
+      <div class="input-summary">
+        <h2>Incident Summary</h2>
+        <div class="input-value">{{ summary | safe }}</div>
+      </div>
+
+      <div class="ai-response">
+        <h2>Analysis of the incident & Guidance</h2>
+        <div class="ai-content">{{ gemini_output | safe }}</div>
+      </div>
+
+    {% endif %}
+
+    <a href="{{ url_for('index') }}" class="back-btn">← Analyze Another Incident</a>
+  </div>
+</body>
+</html>
