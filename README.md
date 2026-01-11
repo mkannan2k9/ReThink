@@ -37,7 +37,7 @@ An AI-powered web application designed to help students reflect on personal inci
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/[your-username]/ai-student-counselor.git
+   git clone https://github.com/mkannan2k9/ReThink.git
    cd ai-student-counselor
    ```
 
