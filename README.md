@@ -1,13 +1,13 @@
 # AI Student Counselor
 
-***
+
 
 An AI-powered web application designed to help students reflect on personal incidents, providing constructive analysis, empathy, and actionable counseling advice using Google's Gemini models.
 
 **Owner:** Kannan Murugapandian  
 **License:** MIT
 
-***
+
 
 ## Features
 
@@ -20,7 +20,7 @@ An AI-powered web application designed to help students reflect on personal inci
 - **Incident Summarizer:** Automatically generates a concise one-paragraph summary of the event for quick review.
 - **Rich Formatting:** Outputs professional, structured advice with bolding, italics, and proper headings, rendered from Markdown to HTML.
 
-***
+
 
 ## Requirements
 
@@ -31,7 +31,7 @@ An AI-powered web application designed to help students reflect on personal inci
   - `google-genai`
   - `markdown`
 
-***
+
 
 ## Installation
 
@@ -57,7 +57,7 @@ An AI-powered web application designed to help students reflect on personal inci
    - `index.html` (The input form)
    - `result.html` (The results display page)
 
-***
+
 
 ## Usage
 
@@ -74,14 +74,14 @@ An AI-powered web application designed to help students reflect on personal inci
    - Click Submit.
    - The AI will generate a summary of what happened and a detailed, structured counseling session.
 
-***
+
 
 ## Models Used
 
 - **Gemini 2.0 Flash:** Used for the detailed counseling advice (Analysis, Empathy, Action Steps).
 - **Gemini 2.5 Flash:** Used for the concise incident summary.
 
-***
+
 
 ## License
 
@@ -107,13 +107,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-***
+
 
 ## Acknowledgements
 
 - [Google Gemini API](https://ai.google.dev/)
 - [Flask](https://flask.palletsprojects.com/)
 
-***
+
 
 **For questions or support, contact Kannan Murugapandian.**
